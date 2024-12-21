@@ -1,13 +1,13 @@
 1) REST API = JSON
 
 GET /api/users - List all users   Done
-GET /api/users/1   get the user with id 2
-GET /api/users/2 - get the user with id 2
+GET /api/users/1   get the user with id 2  Done
+
 
 // Dynamic path params
-GET /api/users/:id 
+GET /api/users/:id     
 
-POST /api/users - create new user
+POST /api/users - create new user         
 
 PATCH /api/user/1 - edit the usewr info with id 1
 

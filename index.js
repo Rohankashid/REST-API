@@ -1,9 +1,13 @@
 const express = require('express');
 const users = require('./MOCK_DATA.json');
+const fs = require('fs');
 
 const app = express();
 
 const port  = 8000;
+
+// middleware
+app.use(express.urlencoded({extended:false}));  // for form data
 
 //routes
 
@@ -37,6 +41,16 @@ app
 
 app.post('/api/users',(req,res)=>{
     // todo : creat e new user
+    const body = req.body;
+  
+    users.push({ ...body , id: users.length + 1}); 
+
+    fs.writeFile('./MOCK_DATA.json',JSON.stringify(users) , (err , data)=>{
+        return res.json({status : "pending"})
+    });
+
+   
+    console.log(body);
     res.json({status : "pending"})
 })
 

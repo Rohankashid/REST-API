@@ -7,6 +7,10 @@ const port  = 8000;
 
 //routes
 
+app.get('/api/users',(req,res) =>{
+    return res.json(users)
+})
+
 app.get('/users' , (req,res)=>{
     const html = `
     <ul>
@@ -15,14 +19,11 @@ app.get('/users' , (req,res)=>{
     res.send(html)
 })
 
-
-app.get('/api/users',(req,res) =>{
-    return res.json(users)
+app.get('/users/:id' , (req,res)=>{
+    const id = req.params.id;
+    const user = users.filter((user) => user.id == id);
+    res.json(user)
 })
-
-
-app.get
-
 
 
 
